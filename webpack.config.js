@@ -7,13 +7,24 @@ module.exports = {
     devtool: 'source-map',
     entry: {},
     module: {
-        loaders: [
-            { test: /\.(jpg|png)$/, loader: "file-loader?name=images/[name].[ext]&publicPath=./&outputPath=./"},
-            { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: 'ng-annotate!babel' },
-            { test: /\.html$/, loader: 'raw' },
-            { test: /\.(scss|sass)$/, loader: 'style!css!sass' },
-            { test: /\.css$/, loader: 'style!css' }
-            
+        loaders: [{
+                test: /\.js$/,
+                exclude: [/app\/lib/, /node_modules/],
+                loader: 'ng-annotate!babel'
+            }, {
+                test: /\.html$/,
+                loader: 'raw'
+            }, {
+                test: /\.scss$/,
+                loader: 'style!css!sass!'
+            }, {
+                test: /\.css$/,
+                loader: 'style!css!'
+            }, {
+                test: /\.(jpg|png)$/,
+                loader: "file-loader?name=images/[name].[ext]&publicPath=./&outputPath=./"
+            }
+
         ]
     },
     plugins: [
