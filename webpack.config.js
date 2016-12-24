@@ -13,18 +13,29 @@ module.exports = {
                 loader: 'ng-annotate!babel'
             }, {
                 test: /\.html$/,
-                loader: 'raw'
+                loader: 'html-loader'
             }, {
                 test: /\.scss$/,
-                loader: 'style!css!sass!'
-            }, {
+                loader: 'style!css?sourceMap!sass?sourceMap'
+            }, , {
                 test: /\.css$/,
                 loader: 'style!css!'
             }, {
                 test: /\.(jpg|png)$/,
-                loader: "file-loader?name=images/[name].[ext]&publicPath=./&outputPath=./"
+                loader: "file?name=images/[name].[ext]&publicPath=./&outputPath=./"
+            }, {
+                test: /\.woff/,
+                loader: require.resolve("url-loader") + '?prefix=font/&limit=10000&mimetype=application/font-woff&name=assets/[hash].[ext]'
+            }, {
+                test: /\.ttf/,
+                loader: require.resolve("file-loader") + '?prefix=font/&name=assets/[hash].[ext]'
+            }, {
+                test: /\.eot/,
+                loader: require.resolve("file-loader") + '?prefix=font/&name=assets/[hash].[ext]'
+            }, {
+                test: /\.svg/,
+                loader: require.resolve("file-loader") + '?prefix=font/&name=assets/[hash].[ext]'
             }
-
         ]
     },
     plugins: [
