@@ -30,6 +30,10 @@ let resolveToComponents = (glob = '') => {
 
 // map of all paths
 let paths = {
+  images: [
+    resolveToApp('**/*.jpg'),
+    path.join(__dirname, root,'images')
+  ],
   js: resolveToComponents('**/*!(.spec.js).js'), // exclude spec files
   scss: resolveToApp('**/*.scss'), // stylesheets
   html: [
